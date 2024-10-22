@@ -1,0 +1,58 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+
+    <!-- Proper Test -->
+    <test name="Proper Test">
+        <parameter name="fName" value="John"/>
+        <parameter name="lName" value="Doe"/>
+        <parameter name="eml" value="john.doe@example.com"/>
+        <parameter name="ag" value="30"/>
+        <parameter name="sal" value="5000"/>
+        <parameter name="dep" value="Engineering"/>
+        <parameter name="test" value="true"/>
+        <classes>
+            <class name="WebTables.AddForm"/>
+        </classes>
+    </test>
+
+    <!-- Test with invalid email -->
+    <test name="Wrong Email Test">
+        <parameter name="fName" value="John"/>
+        <parameter name="lName" value="Doe"/>
+        <parameter name="eml" value="john.doe@test.c"/>
+        <parameter name="ag" value="30"/>
+        <parameter name="sal" value="5000"/>
+        <parameter name="dep" value="Engineering"/>
+        <parameter name="test" value="true"/>
+        <classes>
+            <class name="WebTables.AddForm"/>
+        </classes>
+    </test>
+
+    <test name="Wrong salary Test">
+        <parameter name="fName" value="John"/>
+        <parameter name="lName" value="Doe"/>
+        <parameter name="eml" value="john.doe@test.com"/>
+        <parameter name="ag" value="30"/>
+        <parameter name="sal" value="asjh"/>
+        <parameter name="dep" value="Engineering"/>
+        <parameter name="test" value="true"/>
+        <classes>
+            <class name="WebTables.AddForm"/>
+        </classes>
+    </test>
+
+    <test name="No Test">
+        <parameter name="fName" value="John"/>
+        <parameter name="lName" value="Doe"/>
+        <parameter name="eml" value="john.doe@example.com"/>
+        <parameter name="ag" value="30"/>
+        <parameter name="sal" value="5000"/>
+        <parameter name="dep" value="Engineering"/>
+        <parameter name="test" value="false"/>
+        <classes>
+            <class name="WebTables.AddForm"/>
+        </classes>
+    </test>
+
+</suite>
