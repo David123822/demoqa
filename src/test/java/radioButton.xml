@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+    <test name="Yes button pressed">
+        <parameter name="button" value="yes"/>
+        <classes>
+            <class name="RadioButton"/>
+        </classes>
+    </test>
+
+    <test name="Impressive button pressed">
+        <parameter name="button" value="impressive"/>
+        <classes>
+            <class name="RadioButton"/>
+        </classes>
+    </test>
+
+</suite>

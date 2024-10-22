@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+    <test name="Test1">
+        <parameter name="name" value="Alice"/>
+        <parameter name="uemail" value="alice@email.com"/>
+        <parameter name="taddress" value="temporary address"/>
+        <parameter name="paddress" value="permanent address!"/>
+        <classes>
+            <class name="TextBox"/>
+        </classes>
+    </test>
+
+    <test name="No email">
+        <parameter name="name" value="Alice"/>
+        <parameter name="uemail" value=""/>
+        <parameter name="taddress" value="temporary address"/>
+        <parameter name="paddress" value="permanent address!"/>
+        <classes>
+            <class name="TextBox"/>
+        </classes>
+    </test>
+
+    <test name="wrong email">
+        <parameter name="name" value="Alice"/>
+        <parameter name="uemail" value="test@test.pepe"/>
+        <parameter name="taddress" value="temporary address"/>
+        <parameter name="paddress" value="permanent address!"/>
+        <classes>
+            <class name="TextBox"/>
+        </classes>
+    </test>
+
+
+</suite>

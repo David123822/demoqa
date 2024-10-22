@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+    <test name="2 random buttons pressed">
+        <parameter name="expand" value="true"/>
+        <parameter name="numOfButtons" value="2"/>
+        <classes>
+            <class name="CheckBoxes"/>
+        </classes>
+    </test>
+
+    <test name="Test2">
+        <parameter name="expand" value="false"/>
+        <parameter name="numOfButtons" value="1"/>
+        <classes>
+            <class name="CheckBoxes"/>
+        </classes>
+    </test>
+
+</suite>
