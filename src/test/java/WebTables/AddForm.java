@@ -18,11 +18,23 @@ public class AddForm {
     WebDriver driver;
     String url = "https://demoqa.com/webtables";
 
+    // Constructor that accepts WebDriver, but it's optional
+    public AddForm(WebDriver driver) {
+        this.driver = driver; // Assign the passed driver to the class-level variable
+    }
+
+    // No-argument constructor for standalone test run
+    public AddForm() {
+    }
+
     @BeforeTest
     public void open_the_page() {
-        driver = new ChromeDriver();
-        driver.get(url);
-        driver.manage().window().maximize();
+        // Initialize WebDriver only if it's not already initialized (for external use)
+        if (driver == null) {
+            driver = new ChromeDriver();
+            driver.get(url);
+            driver.manage().window().maximize();
+        }
     }
 
     @AfterTest
@@ -47,7 +59,7 @@ public class AddForm {
         // Wait for the form modal to be visible
         WebElement formModal = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("userForm")));
 
-        // Fill out the form
+        // Fill out the form fields
         WebElement firstName = wait.until(ExpectedConditions.elementToBeClickable(By.id("firstName")));
         firstName.sendKeys(fName);
 
@@ -73,15 +85,12 @@ public class AddForm {
         // Check if it's a valid submission (form should close)
         if (test) {
             try {
-
-                // waits for the form to become invisible due to it being an dynamic item
+                // waits for the form to become invisible due to it being a dynamic item
                 boolean isFormClosed = wait.until(ExpectedConditions.invisibilityOf(formModal));
-
                 assertTrue(isFormClosed, "Form submitted successfully and closed.");
             } catch (org.openqa.selenium.TimeoutException e) {
                 assertFalse(true, "Form submission failed (form did not close).");
             }
         }
-
     }
 }
