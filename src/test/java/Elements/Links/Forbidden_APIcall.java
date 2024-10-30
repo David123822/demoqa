@@ -1,4 +1,4 @@
-package Links;
+package Elements.Links;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

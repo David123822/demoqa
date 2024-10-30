@@ -3,14 +3,14 @@
     <test name="Yes button pressed">
         <parameter name="button" value="yes"/>
         <classes>
-            <class name="RadioButton"/>
+            <class name="Elements.RadioButton"/>
         </classes>
     </test>
 
     <test name="Impressive button pressed">
         <parameter name="button" value="impressive"/>
         <classes>
-            <class name="RadioButton"/>
+            <class name="Elements.RadioButton"/>
         </classes>
     </test>
 

@@ -6,7 +6,7 @@
         <parameter name="taddress" value="temporary address"/>
         <parameter name="paddress" value="permanent address!"/>
         <classes>
-            <class name="TextBox"/>
+            <class name="Elements.TextBox"/>
         </classes>
     </test>
 
@@ -16,7 +16,7 @@
         <parameter name="taddress" value="temporary address"/>
         <parameter name="paddress" value="permanent address!"/>
         <classes>
-            <class name="TextBox"/>
+            <class name="Elements.TextBox"/>
         </classes>
     </test>
 
@@ -26,7 +26,7 @@
         <parameter name="taddress" value="temporary address"/>
         <parameter name="paddress" value="permanent address!"/>
         <classes>
-            <class name="TextBox"/>
+            <class name="Elements.TextBox"/>
         </classes>
     </test>
 

@@ -4,14 +4,14 @@
     <test name="ValidLink">
         <parameter name="linkHref" value="https://demoqa.com/"/>
         <classes>
-            <class name="Broken_Links_Image.BrokenLinks"/>
+            <class name="Elements.Broken_Links_Image.BrokenLinks"/>
         </classes>
     </test>
 
     <test name="BrokenLink">
         <parameter name="linkHref" value="http://the-internet.herokuapp.com/status_codes/500"/>
         <classes>
-            <class name="Broken_Links_Image.BrokenLinks"/>
+            <class name="Elements.Broken_Links_Image.BrokenLinks"/>
         </classes>
     </test>
 

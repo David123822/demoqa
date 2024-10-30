@@ -1,4 +1,4 @@
-package Links;
+package Elements.Links;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,12 +16,12 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Optional;
 
-public class Unauthorized_APIcall {
+public class BadRequest_APIcall {
+
     WebDriver driver;
     DevTools devTools;
     JavascriptExecutor jExecute;
     String url = "https://demoqa.com/links";
-    String statusText;
 
     @BeforeTest
     public void open_page(){
@@ -38,9 +38,9 @@ public class Unauthorized_APIcall {
         devTools.addListener(Network.responseReceived(), responseReceived -> {
             String resURL = responseReceived.getResponse().getUrl();
             int statusCode = responseReceived.getResponse().getStatus();
-            statusText = responseReceived.getResponse().getStatusText();
+            String statusText = responseReceived.getResponse().getStatusText();
 
-            if(resURL.contains("unauthorized")){
+            if(resURL.contains("bad-request")){
                 System.out.println("API call for link: " + resURL);
                 System.out.println("Status code: " + statusCode);
                 System.out.println("Status text: " + statusText);
@@ -62,7 +62,7 @@ public class Unauthorized_APIcall {
     public void test(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
 
-        WebElement link = driver.findElement(By.id("unauthorized"));
+        WebElement link = driver.findElement(By.id("bad-request"));
 
         jExecute.executeScript("arguments[0].scrollIntoView(true)", link);
 
@@ -71,7 +71,7 @@ public class Unauthorized_APIcall {
         WebElement resoponseMessage = wait.until(ExpectedConditions.elementToBeClickable(By.id("linkResponse")));
         String resMessage = resoponseMessage.getText();
 
-        assert resMessage.contains(statusText) : "Some error somewhere :)";
+        assert resMessage.contains("Bad Request") : "Some error somewhere :)";
 
         System.out.println("Page message: " + resMessage);
     }

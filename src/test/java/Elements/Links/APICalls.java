@@ -1,4 +1,4 @@
-package Links;
+package Elements.Links;
 
 // Import necessary Selenium, Chrome DevTools, and TestNG libraries
 import org.openqa.selenium.By; // Provides methods for finding elements by locators

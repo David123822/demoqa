@@ -1,4 +1,4 @@
-package Links;
+package Elements.Links;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,13 +16,16 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Optional;
 
+import java.util.Optional;
+
 import static org.testng.AssertJUnit.assertTrue;
 
-public class Moved_APIcall {
+public class No_Content_APIcall {
+
     WebDriver driver;
-    JavascriptExecutor jExecute;
-    DevTools devTools;
+    DevTools devtools;
     String url = "https://demoqa.com/links";
+    JavascriptExecutor jExecute;
 
     @BeforeTest
     public void open_page(){
@@ -30,48 +33,55 @@ public class Moved_APIcall {
 
         jExecute = (JavascriptExecutor) driver;
 
-        devTools = ((ChromeDriver) driver).getDevTools();
-        devTools.createSession();
+        // Setup Devtools
+        devtools = ((ChromeDriver) driver).getDevTools();
+        devtools.createSession();
 
-        devTools.send(Network.enable(Optional.empty(),Optional.empty(), Optional.empty()));
+        // Enable the traffic tracking
+        devtools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 
-        devTools.addListener(Network.responseReceived(), responseReceived -> {
+
+            // Add a listener to capture network responses from the server
+        devtools.addListener(Network.responseReceived(), responseReceived -> {
             String responseURL = responseReceived.getResponse().getUrl();
             int statusCode = responseReceived.getResponse().getStatus();
-            String  statusText = responseReceived.getResponse().getStatusText();
+            String statusText = responseReceived.getResponse().getStatusText();
 
-            if(responseURL.contains("moved") && statusCode == 301){
-                System.out.println("API call for the link: " + responseURL);
+            // Now filter specifically for 204 responses
+            if(responseURL.contains("no-content") && statusCode == 204){
+                System.out.println("API call successful for 'no content' link.");
                 System.out.println("Status Code: " + statusCode);
                 System.out.println("Status Text: " + statusText);
             }
         });
-        driver.get(url);
+
+        driver.get(url); // Launch the URL
         driver.manage().window().maximize();
     }
 
     @AfterTest
-    public void close_page(){
-        if(driver != null){
-            driver.quit();
+    public void close_the_page() {
+        // Close the browser and end the session after the test
+        if (driver != null) {
+            driver.quit(); // Quit will close all tabs and terminate the session properly
         }
     }
 
     @Test
     public void test(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        WebElement link = wait.until(ExpectedConditions.elementToBeClickable(By.id("no-content")));
 
-        WebElement link = driver.findElement(By.id("moved"));
         jExecute.executeScript("arguments[0].scrollIntoView(true)", link);
-
         link.click();
 
         WebElement statusMessage = wait.until(ExpectedConditions.elementToBeClickable(By.id("linkResponse")));
 
-        String pageMessage = statusMessage.getText();
+        String message = statusMessage.getText();
 
-        assertTrue("There is an issue", pageMessage.contains("301"));
+        assertTrue("Status code 204 not found!",message.contains("204"));
 
-        System.out.println("Page message: " + pageMessage);
+        System.out.println("Page message: " + message);
+
     }
 }

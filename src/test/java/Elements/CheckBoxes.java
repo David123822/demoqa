@@ -1,12 +1,10 @@
+package Elements;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.annotations.Optional;
 
-import java.time.Duration;
 import java.util.*;
 
 import static org.testng.AssertJUnit.assertTrue;

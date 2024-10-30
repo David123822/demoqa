@@ -4,7 +4,7 @@
         <parameter name="expand" value="true"/>
         <parameter name="numOfButtons" value="2"/>
         <classes>
-            <class name="CheckBoxes"/>
+            <class name="Elements.CheckBoxes"/>
         </classes>
     </test>
 
@@ -12,7 +12,7 @@
         <parameter name="expand" value="false"/>
         <parameter name="numOfButtons" value="1"/>
         <classes>
-            <class name="CheckBoxes"/>
+            <class name="Elements.CheckBoxes"/>
         </classes>
     </test>
 

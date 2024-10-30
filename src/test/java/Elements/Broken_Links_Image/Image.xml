@@ -4,14 +4,14 @@
     <test name="ValidImage">
         <parameter name="imageSrc" value="https://demoqa.com/images/Toolsqa.jpg"/>
         <classes>
-            <class name="Broken_Links_Image.BrokenImages"/>
+            <class name="Elements.Broken_Links_Image.BrokenImages"/>
         </classes>
     </test>
 
     <test name="BrokenImage">
         <parameter name="imageSrc" value="https://demoqa.com/images/Toolsqa_1.jpg"/>
         <classes>
-            <class name="Broken_Links_Image.BrokenImages"/>
+            <class name="Elements.Broken_Links_Image.BrokenImages"/>
         </classes>
     </test>
 

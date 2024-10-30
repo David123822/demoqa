@@ -1,4 +1,4 @@
-package Broken_Links_Image;
+package Elements.Broken_Links_Image;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
