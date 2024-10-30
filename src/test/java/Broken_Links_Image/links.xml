@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="BrokenImageSuite">
+
+    <test name="ValidLink">
+        <parameter name="linkHref" value="https://demoqa.com/"/>
+        <classes>
+            <class name="Broken_Links_Image.BrokenLinks"/>
+        </classes>
+    </test>
+
+    <test name="BrokenLink">
+        <parameter name="linkHref" value="http://the-internet.herokuapp.com/status_codes/500"/>
+        <classes>
+            <class name="Broken_Links_Image.BrokenLinks"/>
+        </classes>
+    </test>
+
+</suite>
