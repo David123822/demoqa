@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+    <test name="Proper form">
+        <parameter name="fname" value="John"/>
+        <parameter name="lname" value="Doe"/>
+        <parameter name="email" value="johndoe@gmail.com"/>
+        <parameter name="gender" value="m"/>
+        <parameter name="mnumber" value="1234567890"/>
+        <parameter name="birthDate" value="15 Nov 2024"/>
+        <parameter name="subject" value="Maths"/>
+        <parameter name="hobbie" value="sport"/>
+        <parameter name="picture" value="sampleFile.jpeg"/>
+        <parameter name="caddress" value="CurrentAddress"/>
+        <parameter name="state" value="NCR"/>
+        <parameter name="city" value="Delhi"/>
+        <classes>
+            <class name="Forms.PracticeForm"/>
+        </classes>
+    </test>
+
+
+</suite>
